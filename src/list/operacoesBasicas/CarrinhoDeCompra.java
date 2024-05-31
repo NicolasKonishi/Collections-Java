@@ -22,8 +22,6 @@ public class CarrinhoDeCompra {
                 }
             }
             carrinhoList.removeAll(itensParaRemover);
-        } else {
-            System.out.println("A lista está vazia!");
         }
     }
     public double calcularValorTotal() {
@@ -33,51 +31,38 @@ public class CarrinhoDeCompra {
                 double valorItem = item.getPreco() * item.getQuantidade();
                 valorTotal += valorItem;
             }
-            return valorTotal;
-        } else {
-            throw new RuntimeException("A lista está vazia!");
         }
+        return valorTotal;
     }
-//    public double calcularValorTotal() {
-//        double valorTotal = 0d;
-//            for (Item item : carrinhoList) {
-//                double valorItem = item.getPreco() * item.getQuantidade();
-//                valorTotal += valorItem;
-//            }
-//            return valorTotal;
-//    }
 
     public void exibirItens() {
         if (!carrinhoList.isEmpty()) {
+            System.out.println(carrinhoList.size());
             System.out.println(this.carrinhoList);
-        } else {
-            System.out.println("A lista está vazia!");
         }
-    }
-    @Override
-    public String toString() {
-        return "CarrinhoDeCompras{" +
-                "itens=" + carrinhoList +
-                '}';
     }
 
     public static void main(String[] args) {
 
         CarrinhoDeCompra carrinhoDeCompras = new CarrinhoDeCompra();
 
-        carrinhoDeCompras.adicionarItem("Lápis", 2d, 3);
-        carrinhoDeCompras.adicionarItem("Lápis", 2d, 3);
-        carrinhoDeCompras.adicionarItem("Caderno", 35d, 1);
-        carrinhoDeCompras.adicionarItem("Borracha", 2d, 2);
+        carrinhoDeCompras.adicionarItem("Leite", 2.15d, 3);
+        carrinhoDeCompras.adicionarItem("Leite", 2.15d, 3);
+        carrinhoDeCompras.adicionarItem("carne", 35d, 1);
+        carrinhoDeCompras.adicionarItem("Pão", 1d, 10);
 
+        //antes de remover
+        System.out.println("antes de remover");
         carrinhoDeCompras.exibirItens();
 
+        carrinhoDeCompras.removerItem("Leite");
+        System.out.println("-------------------------------------------\n");
 
-        carrinhoDeCompras.removerItem("Lápis");
-
-
+        //depois de remover
+        System.out.println("depois de remover");
         carrinhoDeCompras.exibirItens();
 
+        System.out.println("-------------------------------------------\n");
         System.out.println("O valor total da compra é = " + carrinhoDeCompras.calcularValorTotal());
     }
 }

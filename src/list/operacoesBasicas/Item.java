@@ -26,9 +26,9 @@ public class Item {
 
     @Override
     public String toString() {
-        return "\nItens: " +
-                "\nnome= " + nome +
-                "\npreco= " + preco +
-                "\nquantidade= " + quantidade + "\n";
+        return  "\n" + "Itens: " + "\n"  +
+                "nome: " + nome +  "\n"  +
+                "preco: " + preco + "\n"  +
+                "quantidade: " + quantidade + "\n";
     }
 }
